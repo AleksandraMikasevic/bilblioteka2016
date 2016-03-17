@@ -9,12 +9,14 @@ public class Bilblioteka implements BilbiotekaInterfejs {
 	@Override
 	public void dodajKnjigu(Knjiga knjiga) {
 		// TODO Auto-generated method stub
+		if(knjiga == null || knjige.contains(knjiga)) throw new RuntimeException("Greska pri unosu knjige.");
 		knjige.add(knjiga);
 	}
 
 	@Override
 	public void obrisiKnjigu(Knjiga knjiga) {
 		// TODO Auto-generated method stub
+		if(knjiga == null || !knjige.contains(knjiga)) throw new RuntimeException("Greska pri unosu knjige.");
 		knjige.remove(knjiga);
 
 	}
@@ -28,7 +30,7 @@ public class Bilblioteka implements BilbiotekaInterfejs {
 	@Override
 	public LinkedList<Knjiga> pronadjiKnjigu(Autor autor, long ISBN, String naslov, String izdavac) {
 		// TODO Auto-generated method stub
-		if(naslov == null || naslov.isEmpty()) return knjige;
+		if(naslov == null || naslov.isEmpty()) throw new RuntimeException("Greska pri unosu naslova.");
 		LinkedList<Knjiga> rezultat = new LinkedList<Knjiga>();
 		
 		for (int i = 0; i < knjige.size(); i++) {
